@@ -1,7 +1,7 @@
 # BulkInsert Project
 
 ## Overview
-The BulkInsert project is a CLI-based ETL (Extract, Transform, Load) tool designed to import trip data from a CSV file into an MS SQL Server database efficiently. It removes duplicate entries, transforms data where necessary, and optimizes the database schema for common queries.
+The BulkInsert project is a CLI-based tool designed to import trip data from a CSV file into an MS SQL Server database efficiently. It removes duplicate entries, transforms data where necessary, and optimizes the database schema for common queries.
 
 ---
 
@@ -70,7 +70,6 @@ To process large files efficiently:
 
 - **Batch Processing**: Read the CSV file in manageable batches (e.g., 10,000 rows per batch) to prevent memory overload.
 - **Incremental Insertion**: Process each batch individually and insert it into the database before moving to the next batch.
-- **Optimized Duplicate Detection**: Track records that have already been inserted into the database to ensure accurate duplicate handling across batches.
 
 ---
 
