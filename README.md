@@ -32,6 +32,7 @@ CREATE INDEX IDX_TripDistance ON Trips (trip_distance DESC);
 CREATE INDEX IDX_TravelTime ON Trips (tpep_pickup_datetime, tpep_dropoff_datetime);
 ```
 
+Find out which `PULocationId` (Pick-up location ID) has the highest tip_amount on average. - 194
 ```sql
 SELECT TOP 1 PULocationID, AVG(tip_amount) AS AvgTip
 FROM Trips
@@ -39,12 +40,14 @@ GROUP BY PULocationID
 ORDER BY AvgTip DESC;
 ```
 
+Find the top 100 longest fares in terms of trip_distance.
 ```sql
 SELECT TOP 100 *
 FROM Trips
 ORDER BY trip_distance DESC;
 ```
 
+Find the top 100 longest fares in terms of time spent traveling.
 ```sql
 SELECT TOP 100 *,
        DATEDIFF(SECOND, tpep_pickup_datetime, tpep_dropoff_datetime) AS TravelTime
@@ -52,6 +55,7 @@ FROM Trips
 ORDER BY TravelTime DESC;
 ```
 
+Search, where part of the conditions is PULocationId.
 ```sql
 DECLARE @PULocationID INT = 4;
 
