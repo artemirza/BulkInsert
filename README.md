@@ -35,25 +35,25 @@ CREATE INDEX IDX_TravelTime ON Trips (tpep_pickup_datetime, tpep_dropoff_datetim
 SELECT TOP 1 PULocationID, AVG(tip_amount) AS AvgTip
 FROM Trips
 GROUP BY PULocationID
-ORDER BY AvgTip DESC;``````
+ORDER BY AvgTip DESC;```
 
 ```sql
 SELECT TOP 100 *
 FROM Trips
-ORDER BY trip_distance DESC;``````
+ORDER BY trip_distance DESC;```
 
 ```sql
 SELECT TOP 100 *,
        DATEDIFF(SECOND, tpep_pickup_datetime, tpep_dropoff_datetime) AS TravelTime
 FROM Trips
-ORDER BY TravelTime DESC;``````
+ORDER BY TravelTime DESC;```
 
 ```sql
 DECLARE @PULocationID INT = 4;
 
 SELECT *
 FROM Trips
-WHERE PULocationID = @PULocationID;``````
+WHERE PULocationID = @PULocationID;```
 
 ### Handling Large Files (Point #9)
 
