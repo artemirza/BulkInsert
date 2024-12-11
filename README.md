@@ -1,5 +1,5 @@
 # BulkInsert
-How to Use
+**How to Use**
 
 Setup:
 Ensure MS SQL Server is running and configured.
@@ -15,7 +15,7 @@ Duplicates will be logged into the specified duplicates.csv file.
 
 **Solution to point #4**
 
-!Create indexes to work with Index Scan!
+Create indexes to work with Index Scan
 CREATE INDEX IDX_PULocationID ON Trips (PULocationID);
 CREATE INDEX IDX_TripDistance ON Trips (trip_distance DESC);
 CREATE INDEX IDX_TravelTime ON Trips (tpep_pickup_datetime, tpep_dropoff_datetime);
@@ -47,8 +47,8 @@ WHERE PULocationID = @PULocationID;
 **Solution to point #9**
 To handle large files efficiently, the program should read the file in batches (It can be 10000 rows) rather than loading the entire file into memory. Each batch can then be processed and inserted into the database before moving to the next batch. 
 
-**Deliverables**
+**Deliverables:**
 Number of rows in the table after running the program is 29889. Csv file has 111 dublicates.
 
-**Assumptions** 
+**Assumptions:** 
 I tried to implement the work with batches according to my interest, but I had a problem with the detection of duplicates, because I checked duplicates also with batches, I faced exceptions (the row with this key is already in the database) because I could not know which row I had already written to the database in the previous iteration. 
